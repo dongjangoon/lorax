@@ -329,6 +329,7 @@ fn default_parameters() -> GenerateParameters {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct GenerateRequest {
     #[schema(example = "My name is Olivier and I")]
     pub inputs: String,
@@ -347,6 +348,7 @@ fn default_true() -> bool {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct CompatGenerateRequest {
     #[schema(example = "My name is Olivier and I")]
     pub inputs: String,
@@ -374,6 +376,7 @@ impl From<CompatGenerateRequest> for GenerateRequest {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct TokenizeRequest {
     #[schema(example = "My name is Olivier and I")]
     pub inputs: String,
@@ -1156,6 +1159,7 @@ impl Default for EmbedParameters {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 struct EmbedRequest {
     inputs: String,
     #[serde(default)]
@@ -1184,6 +1188,7 @@ impl std::fmt::Display for StringOrVec {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 struct CompatEmbedRequest {
     input: StringOrVec,
     #[allow(dead_code)]
@@ -1211,16 +1216,19 @@ struct CompatEmbedding {
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 struct ClassifyRequest {
     inputs: String,
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 struct BatchClassifyRequest {
     inputs: Vec<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, ToSchema)]
+#[serde(deny_unknown_fields)]
 struct BatchEmbedRequest {
     inputs: Vec<String>,
     #[serde(default)]
